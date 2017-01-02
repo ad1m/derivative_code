@@ -8,10 +8,10 @@ import time
 '''
 
 
-def download_data(tickers,start='all',end='all',all_data=False):
+def download_data(tickers,start,end,all_data=False):
     count = 1
     if all_data==True:
-        end = datetime.datetime.now
+        end = datetime.datetime.now()
         end = '%s-%s-%s' % (end.month,end.day,end.year)
         start = '01-01-1970'
 
@@ -33,5 +33,4 @@ if __name__ == '__main__':
     tickers = ['AAPL','BAC','GILD','MSFT']
     start = '2016-01-01'
     end = '2016-12-21'
-    metric='Adj Close' #this will give us open, high, low, close, volume, Adj Close
-    download_data(tickers,start,end,metric)
+    download_data(tickers,start,end,all_data=True)
