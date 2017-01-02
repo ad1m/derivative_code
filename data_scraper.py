@@ -1,8 +1,15 @@
 import pandas_datareader.data as web
 import os
 import datetime
+import time
+
+'''
+ This is code for the Scraping Historical Data lesson
+'''
+
 
 def download_data(tickers,start='all',end='all',metric=False,all_data=False):
+    count = 1
     if all_data==True:
         end = datetime.datetime.now
         end = '%s-%s-%s' % (end.month,end.day,end.year)
@@ -17,10 +24,13 @@ def download_data(tickers,start='all',end='all',metric=False,all_data=False):
         filename = directory+'/'+ticker+'.csv'
         d[ticker] = web.DataReader(ticker,"yahoo",start,end)
         d[ticker].to_csv(filename)
-        return
+        count  = count + 1
+        if count % 50 == 0:
+            time.sleep(10)
+    return
 
 if __name__ == '__main__':
-    tickers = ['AAPL','BAC','GILD']
+    tickers = ['AAPL','BAC','GILD','MSFT']
     start = '2016-01-01'
     end = '2016-12-21'
     end = 'today'
