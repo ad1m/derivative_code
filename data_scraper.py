@@ -1,11 +1,12 @@
 import pandas_datareader.data as web
 import os
-import time
+import datetime
 
 def download_data(tickers,start='all',end='all',metric=False,all_data=False):
     if all_data==True:
-        end = time.strftime("%x")
-        start = '01/01/1970'
+        end = datetime.datetime.now
+        end = '%s-%s-%s' % (end.month,end.day,end.year)
+        start = '01-01-1970'
 
     directory = 'stock_data'
     if not os.path.exists(directory):
