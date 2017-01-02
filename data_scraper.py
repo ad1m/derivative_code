@@ -33,6 +33,5 @@ if __name__ == '__main__':
     tickers = ['AAPL','BAC','GILD','MSFT']
     start = '2016-01-01'
     end = '2016-12-21'
-    end = 'today'
     metric='Adj Close' #this will give us open, high, low, close, volume, Adj Close
     download_data(tickers,start,end,metric)
