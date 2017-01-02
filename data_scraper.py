@@ -8,7 +8,7 @@ import time
 '''
 
 
-def download_data(tickers,start='all',end='all',metric=False,all_data=False):
+def download_data(tickers,start='all',end='all',all_data=False):
     count = 1
     if all_data==True:
         end = datetime.datetime.now
