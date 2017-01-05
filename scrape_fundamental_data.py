@@ -19,7 +19,7 @@ def fundamental_scraper(tickers,metrics):
         metrics = d.keys()
     else:
         vals = [d[i] for i in metrics]
-    f1 = open('fundamental_metrics.csv','w')
+    f1 = open('fundamental_metrics.txt','w')
     d1 = {}
     d2 = {}
     count = 1
